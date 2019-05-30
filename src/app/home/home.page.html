@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    recent conversations
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let chat of chats" href='/chat-detail/{{chat.contato}}'>
+      <ion-item-sliding>
+
+        <ion-item href="/chat-detail">
+          <ion-avatar slot="start">
+            <img src="{{chat.url}}">
+          </ion-avatar>
+          <ion-label>{{chat.contato}}</ion-label>
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="excluir(chat)">Excluir</ion-item-option>
+          </ion-item-options>
+        </ion-item>
+        
+      </ion-item-sliding>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="exibir_modal()">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+</ion-content>
